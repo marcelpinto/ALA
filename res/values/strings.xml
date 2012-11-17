@@ -1,0 +1,62 @@
+<resources>
+
+    <string name="app_name">Alarm Location Adviser</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">LocationAdviser</string>
+    <string name="dirHint">Where are you going?</string>
+    <string name="okAlarm">Ok...</string>
+    <string name="meters">"Num meters adviser: "</string>
+    <string name="tip">Tips</string>
+    <string name="twitter">HardSoftstudios</string>
+    <string name="follow">Follow us:</string>
+    <string name="hss">HardSoft Studios\\nALA</string>
+    <string name="remove">REMOVE the alarm?</string>
+    <string name="mapLoad">...Loading Map...</string>
+    <string name="servLoad">...Connecting to the server...</string>
+    <string name="posLoad">...Finding your position...</string>
+    <string name="relaxLoad">...Taking a breath...</string>
+    <string name="noLocation">Location not found check your preference!</string>
+    <string name="noshow">Don\'t show again</string>
+    <string name="gps">GPS not connected, we recommend to connect it. Do you want?</string>
+    <string name="tips">TIPS</string>
+    <string name="tipssubtxt">Some useful help to make the app work better</string>
+    <string name="faq">FAQ</string>
+    <string name="faqsubtxt">Useful to know how the system works</string>
+    <string name="contact">CONTACT</string>
+    <string name="contactsubtxt">If you have some problem or question don\'t doubt and ask us!</string>
+    <string name="tip_setalarm">Press this button to set manually a new alarm</string>
+    <string name="tip_removealarm">Press this button to remove alarm</string>
+    <string name="tips_settings">Show settings</string>
+    <string name="tip_pressMap">Tap on the map to set a new Alarm at this point</string>
+    <string name="tip_movemap">"You can navigate on the map by draging, pitching... "</string>
+    <string name="tip_iconopt">Press ALA icon to follow us on twitter</string>
+    <string name="tip_textbox">In this box you can input your destination (AutoCompletTextBox)</string>
+    <string name="tip_meterbar">Drag this bar to set the number of meters before being advised</string>
+    <string name="tip_yesno">Set or cancel the alarm buttons</string>
+    <string name="faq_title1">What\'s this APP?</string>
+    <string name="faq_title2">Why I need it?</string>
+    <string name="faq_txt1">It\'s a simple APP, that lets you fix an alarm to wake you up when you get close to your destination. So you fix the point on the map with your finger and set the number of meters, ALA will notify you when you get close to it.</string>
+    <string name="faq_txt2">If you often use public transport or you just want to know when you are close to a place, this APP is ideal for you. Never fall asleep again and miss your stop.</string>
+    <string name="faq_title3">How it works?</string>
+    <string name="faq_txt3">It uses your location to know where you are. With this it can determine the distance between your position and the point that you selected on the map. Depending on the system that is activated works better or not, so if you are on 3G it gets your location based on the anthems, it\'s not accurate depending on the area, so we recommend to use GPS</string>
+    <string name="faq_title4">It consumes a lot of resource and battery?</string>
+    <string name="faq_txt4">NO! we are using an algorithm based on the distance of your trip, so it adjust the GPS or the location request to avoid unnecessary access, so the battery is saved.</string>
+    <string name="faq_title5">How many meters should I select?</string>
+    <string name="faq_txt5">If you are not using GPS or wifi we recommend to always put the MAX meters adviser, if you use GPS it\'s up to you</string>
+    <string name="hss_title">HARDSOFT</string>
+    <string name="studios">Studios</string>
+    <string name="contact_us">Send us your questions:</string>
+    <string name="name">Your Name</string>
+    <string name="email">Your email</string>
+    <string name="ask">What\'s on your mind?    ask it!</string>
+    <string name="send">Send</string>
+    <string name="error_text">Fill all the fields before send it</string>
+    <string name="tip_noAd">If you want to remove the Ads think on buying ALA plus (with more features)</string>
+    <string name="helpmenu">Help/Tips/Contact</string>
+    <string name="plus">Get ALA Plus</string>
+    <string name="iniText">Thanks to use ALA, this screen will only appear the first time. We just want to orientate you around this APP. It\'s a really simple and easy APP, but we extremely recommend you to take a look at the section TIP and FAQ to use it on the right way. Hope you like it!</string>
+    <string name="tapb">&lt;&lt; CLICK >></string>
+    
+
+</resources>
