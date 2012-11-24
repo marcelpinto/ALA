@@ -105,7 +105,8 @@ public class MainActivity extends SherlockMapActivity implements OnClickListener
 	private Button yesB;
 	private TextView loadTxt;
 	private FrameLayout loadFrame;
-	
+	private TextView gpsInfo;
+	private Button findme;
 	private Thread thread;  
     //Create a Thread handler to queue code execution on a thread  
     private Handler handler;
@@ -143,7 +144,7 @@ public class MainActivity extends SherlockMapActivity implements OnClickListener
 		    		  isLoading = true;
 		    		  return;
 		    	  }
-		    	  
+		    	  findme.setBackgroundResource(R.drawable.gps_on_1);
 		    	  removeItem();
 		    	  setIconOverlay(data.getDouble("LAT"),data.getDouble("LON"));
 		    	  Preference.writeString(MainActivity.this, Preference.POS_LAT, Double.toString(data.getDouble("LAT")));
@@ -161,9 +162,13 @@ public class MainActivity extends SherlockMapActivity implements OnClickListener
 		    	  break;
 		      case LocationService.MSG_GPS_NOTFOUND:
 		    	  //.i("Message NOGPS", "RECIVED");
+		    	  gpsInfo.setText(R.string.GPS_off);
 		    	  if (!Preference.readBoolean(getApplicationContext(), Preference.GPS_INFO, false)) {
 		    		  setDialogPannel(GPS_NOT_FOUND);
 		    	  }
+		    	  break;
+		      case LocationService.MSG_GPS_FOUND:
+		    	  gpsInfo.setText(R.string.GPS_on);
 		    	  break;
 		      default:
 				  super.handleMessage(msg);
@@ -380,7 +385,8 @@ public class MainActivity extends SherlockMapActivity implements OnClickListener
 	
 
 	private void configureUI() {
-		Button findme = (Button) findViewById(R.id.findme);
+		findme = (Button) findViewById(R.id.findme);
+		gpsInfo = (TextView) findViewById(R.id.isgps);
 		infoP = (LinearLayout) this.findViewById(R.id.infoPannel);
 		dialP = (LinearLayout) this.findViewById(R.id.dialogPannel);
 		textInfo = ((LinearLayout) findViewById(R.id.textlayout));
@@ -598,14 +604,9 @@ public class MainActivity extends SherlockMapActivity implements OnClickListener
 		case R.id.set_tips:
 			startActivity(new Intent(getApplicationContext(), HelpManager.class));
 			break;
-		case R.id.set_plus:
-			/*final String appName = "com.hardsoft.alarm.location.adviser";
-			try {
-			    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+appName)));
-			} catch (android.content.ActivityNotFoundException anfe) {
-			    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id="+appName)));
-			}*/
-			Toast.makeText(getApplicationContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+		case R.id.set_more:
+			startActivity(new Intent(getApplicationContext(), MoreApps.class));
+			//Toast.makeText(getApplicationContext(), "Comming soon", Toast.LENGTH_SHORT).show();
 			break;
 		}
 		return super.onMenuItemSelected(featureId, item);
@@ -830,6 +831,7 @@ public class MainActivity extends SherlockMapActivity implements OnClickListener
 				dialP.setVisibility(View.GONE);
 				break;
 			case BUTTON_FINDME:
+				findme.setBackgroundResource(R.drawable.gps_on_2);
 				requestLocation();
 				break;
 			default:

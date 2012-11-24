@@ -26,7 +26,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
@@ -67,6 +71,17 @@ public class AlarmRing extends Activity implements OnSeekBarChangeListener {
 		sb.setProgressDrawable(resize(this.getResources().getDrawable(R.drawable.seekbar_forground),100,60));
 		sb.setBackgroundDrawable(resize(this.getResources().getDrawable(R.drawable.seekbar_background),width,60));
 		sb.setOnSeekBarChangeListener(this);
+		TranslateAnimation mAnimation = new TranslateAnimation(
+	            TranslateAnimation.RELATIVE_TO_PARENT, 0f,
+	            TranslateAnimation.RELATIVE_TO_PARENT, 1.0f,
+	            TranslateAnimation.RELATIVE_TO_PARENT, 0f,
+	            TranslateAnimation.RELATIVE_TO_PARENT, 0f);
+	   mAnimation.setDuration(2000);
+	   mAnimation.setRepeatCount(-1);
+	   mAnimation.setRepeatMode(Animation.REVERSE);
+	   mAnimation.setInterpolator(new LinearInterpolator());
+	   ImageView f = (ImageView) findViewById(R.id.finger);
+	   f.setAnimation(mAnimation);
         //.i("Ring", "rrrrrr");
         new AlarmTask().execute();
         

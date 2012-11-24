@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
     package="com.hardsoft.alarm.location.adviser"
-    android:versionCode="2"
-    android:versionName="1.1" >
+    android:versionCode="4"
+    android:versionName="1.2" >
     
     <uses-sdk
         android:minSdkVersion="8"
@@ -15,6 +15,9 @@
 	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
 	<uses-permission android:name="android.permission.VIBRATE"/>
  	<uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
     <application
         
@@ -44,9 +47,12 @@
             	  android:configChanges="orientation|keyboardHidden" >
         </activity>
         <activity android:name=".HelpManager" ></activity>
+        <activity android:name=".MoreApps" ></activity>
         <activity android:name=".Tips" 
             	  android:theme="@style/android:Theme.Translucent.NoTitleBar" >
         </activity>
+        
+        <activity android:name="com.tapfortap.TapForTapActivity"/>
         
         <activity android:name="com.google.ads.AdActivity"
               android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>

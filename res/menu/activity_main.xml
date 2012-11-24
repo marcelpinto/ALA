@@ -24,8 +24,8 @@
                 android:title="Choose Ringtone" />
             <item android:id="@+id/set_tips" 
                 android:title="@string/helpmenu" />
-            <item android:id="@+id/set_plus" 
-                android:title="@string/plus" />
+            <item android:id="@+id/set_more" 
+                android:title="@string/more" />
             <item android:id="@+id/set_exit"
                 android:title="Exit"/>
             

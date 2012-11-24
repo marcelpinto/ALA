@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class InitialHelp extends Activity {
 
@@ -29,6 +30,7 @@ public class InitialHelp extends Activity {
         }
 		Preference.writeBoolean(getApplicationContext(), Preference.ISFIRST, false);
 		tap = (Button) findViewById(R.id.tapButton);
+		LinearLayout ini = (LinearLayout) findViewById(R.id.iniLayout);
 		button_animation = new Runnable() {
 		  @Override
 		  public void run() {
@@ -61,6 +63,23 @@ public class InitialHelp extends Activity {
 		  }
 		};
 		mHandler.postDelayed(button_animation, 100);
+		ini.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				//.i("Click", "go to help");
+				runOnUiThread(new Runnable() {
+				    public void run() {
+				    	tap.setText("LOADING");
+				    }
+				});
+				startActivity(new Intent(InitialHelp.this,MainActivity.class));
+				finish();
+			}
+			
+		});
+
 		tap.setOnClickListener(new OnClickListener() {
 
 			@Override

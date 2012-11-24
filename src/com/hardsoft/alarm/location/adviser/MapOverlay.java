@@ -87,7 +87,7 @@ class MapOverlay extends Overlay {
 	    }else{
 	    	if (this.isVisible) return false;
 			this.isVisible = true;
-			if (Preference.readBoolean(mapView.getContext(), Preference.ALARM_ACT, false)) return true;
+			if (Preference.readBoolean(mapView.getContext(), Preference.ALARM_ACT, false)) return false;
 			this.gp=p;
 			drawAim(mapView);
 			//.i("Loading Bar", "start");

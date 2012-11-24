@@ -31,9 +31,9 @@ public class AddressPredictor {
 	//Constructor of the class, used to get countryCode
 	public AddressPredictor(Context c) {
 		TelephonyManager tm = (TelephonyManager) c.getSystemService(Context.TELEPHONY_SERVICE);
-		this.countryCode = tm.getSimCountryIso();
-		if (this.countryCode.isEmpty())
-			this.countryCode = c.getResources().getConfiguration().locale.getCountry();
+		countryCode = tm.getSimCountryIso();
+		if (countryCode==null || countryCode.equals(""))
+			countryCode = c.getResources().getConfiguration().locale.getCountry();
 	}
 	
 	private ArrayList<String> autocomplete(String input) {

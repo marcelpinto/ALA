@@ -57,6 +57,11 @@
     <string name="plus">Get ALA Plus</string>
     <string name="iniText">Thanks to use ALA, this screen will only appear the first time. We just want to orientate you around this APP. It\'s a really simple and easy APP, but we extremely recommend you to take a look at the section TIP and FAQ to use it on the right way. Hope you like it!</string>
     <string name="tapb">&lt;&lt; CLICK >></string>
+    <string name="GPS_on">GPS ON</string>
+    <string name="GPS_off">GPS OFF</string>
+    <string name="more">More APPs</string>
+    <string name="ownapps">HardSoft studios Apps:</string>
+    <string name="showads">Tap for more</string>
     
 
 </resources>

@@ -51,6 +51,8 @@ public class LocationService extends Service implements LocationListener {
 	
 	static final int MSG_IS_GPS_ON = 9;
 	
+	static final int MSG_GPS_FOUND = 10;
+	
     private static final int TWO_MINUTES = 1000 * 60 * 2;
 
 	
@@ -66,6 +68,8 @@ public class LocationService extends Service implements LocationListener {
 	private static final long FREQ_UPDATE_SMALL = 1000*30;
 
 	private static final float FREQ_UPDATE_METERS_SMALL = 100;
+
+	
 	
 	
 	private LocationManager loc_manager;
@@ -99,6 +103,8 @@ public class LocationService extends Service implements LocationListener {
             	if (lastLoc==null) {
             		enableLocation();
             	}
+            	/*if (provider!= null)
+            		loc_manager.requestSingleUpdate(provider, LocationService.this, null);*/
             	sendLocationToActivity(lastLoc);
             	break;
             case MSG_ALARM_SET:
@@ -353,8 +359,8 @@ public class LocationService extends Service implements LocationListener {
 		//.i("Provider", "disabled new provider = "+disprovider);
 		if (disprovider.equals(LocationManager.GPS_PROVIDER)) {
 			//Toast.makeText(this, "GPS disabled", Toast.LENGTH_SHORT).show();
-			if (!Preference.readBoolean(getApplicationContext(), Preference.GPS_INFO, false))
-				sendNoGPS();
+			//if (!Preference.readBoolean(getApplicationContext(), Preference.GPS_INFO, false))
+			sendNoGPS();
 			Criteria criteria = new Criteria();
 	        criteria.setAccuracy(Criteria.ACCURACY_COARSE);
 	        this.provider = loc_manager.getBestProvider(criteria, false);
@@ -379,12 +385,27 @@ public class LocationService extends Service implements LocationListener {
 			e.printStackTrace();
 		}
     }
+	
+	private void sendGPSOn() {
+    	if (mClients.isEmpty()) return;
+    	Message msg = Message.obtain();
+    	msg.what = MSG_GPS_FOUND;
+    	try {
+    		//.i("Message", "sending");
+			mClients.get(0).send(msg);
+			//.i("Message", "NOGPS sended");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 
 	@Override
 	public void onProviderEnabled(String newprovider) {
 		// TODO Auto-generated method stub
 		//.i("Provider", "enabled new provider = "+newprovider);
 		if (newprovider.equals(LocationManager.GPS_PROVIDER)) {
+			sendGPSOn();
 			this.provider=newprovider;
 			loc_manager.requestLocationUpdates(newprovider, FREQ_UPDATE_BIG, FREQ_UPDATE_METERS_BIG, this);
 		}
